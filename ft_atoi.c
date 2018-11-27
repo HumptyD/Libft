@@ -6,7 +6,7 @@
 /*   By: jlucas-l <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/22 14:13:00 by jlucas-l          #+#    #+#             */
-/*   Updated: 2018/11/25 16:28:29 by jlucas-l         ###   ########.fr       */
+/*   Updated: 2018/11/27 19:10:05 by jlucas-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,5 @@ int		ft_atoi(const char *str)
 		res = (res * 10) + (*str - '0');
 		str++;
 	}
-	return (sign < 0 ? -res : res);
+	return (res * sign);
 }

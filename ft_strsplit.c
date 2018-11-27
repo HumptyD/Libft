@@ -6,7 +6,7 @@
 /*   By: jlucas-l <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/24 17:23:47 by jlucas-l          #+#    #+#             */
-/*   Updated: 2018/11/25 16:46:35 by jlucas-l         ###   ########.fr       */
+/*   Updated: 2018/11/27 17:50:08 by jlucas-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,27 +55,35 @@ static	char	*ft_allocateword(const char *s, char c)
 	return (res);
 }
 
+static void		ft_freearr(char **arr, int len)
+{
+	while (--len > -1)
+		free(arr[len]);
+	free(arr);
+}
+
 char			**ft_strsplit(char const *s, char c)
 {
 	char	**res;
-	size_t	i;
 	size_t	j;
 
 	if (!s || !(res = (char **)malloc(sizeof(char *)
 					* (count_words(s, c) + 1))))
 		return (NULL);
-	i = 0;
 	j = 0;
-	while (s[i])
+	while (*s)
 	{
-		while (s[i] == c)
-			i++;
-		if (s[i] != c && s[i])
+		while (*s == c)
+			s++;
+		if (*s != c && *s)
 		{
-			if (!(res[j++] = ft_allocateword(s + i, c)))
+			if (!(res[j++] = ft_allocateword(s, c)))
+			{
+				ft_freearr(res, --j);
 				return (NULL);
-			while (s[i] != c && s[i])
-				i++;
+			}
+			while (*s != c && *s)
+				s++;
 		}
 	}
 	res[j] = NULL;

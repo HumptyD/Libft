@@ -6,7 +6,7 @@
 /*   By: jlucas-l <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/26 17:21:53 by jlucas-l          #+#    #+#             */
-/*   Updated: 2018/11/27 17:34:21 by jlucas-l         ###   ########.fr       */
+/*   Updated: 2018/11/28 16:34:07 by jlucas-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,24 +29,25 @@ t_list		*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {
 	t_list	*obj;
 	t_list	*temp;
+	t_list	*new;
 
-	obj = NULL;
-	temp = NULL;
-	if (lst && f)
+	if (!lst || !f)
+		return (NULL);
+	temp = f(lst);
+	if (!(new = ft_lstnew(temp->content, temp->content_size)))
+		return (NULL);
+	obj = new;
+	lst = lst->next;
+	while (lst)
 	{
-		if (!(obj = f(lst)))
-			return (NULL);
-		temp = obj;
-		while (lst->next)
+		temp = f(lst);
+		if (!(new->next = ft_lstnew(temp->content, temp->content_size)))
 		{
-			lst = lst->next;
-			if (!(temp->next = f(lst)))
-			{
-				ft_freelst(obj);
-				return (NULL);
-			}
-			temp = temp->next;
+			ft_freelst(obj);
+			return (NULL);
 		}
+		new = new->next;
+		lst = lst->next;
 	}
 	return (obj);
 }

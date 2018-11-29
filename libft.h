@@ -6,7 +6,7 @@
 /*   By: jlucas-l <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 15:30:24 by jlucas-l          #+#    #+#             */
-/*   Updated: 2018/11/29 18:21:47 by jlucas-l         ###   ########.fr       */
+/*   Updated: 2018/11/29 21:14:21 by jlucas-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ void				ft_lstadd(t_list **alst, t_list *new);
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 
-t_list				*ft_lst_revers(t_list *alst);
+t_list				*ft_lst_reverse(t_list *alst);
 int					ft_list_size(t_list *alst);
 void				ft_list_foreach(t_list *alst, void (*f)(void *, size_t));
 t_list				*ft_lst_n(t_list *lst, size_t n);

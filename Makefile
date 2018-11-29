@@ -6,7 +6,7 @@
 #    By: jlucas-l <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/22 16:42:08 by jlucas-l          #+#    #+#              #
-#    Updated: 2018/11/26 18:26:22 by jlucas-l         ###   ########.fr        #
+#    Updated: 2018/11/29 18:20:41 by jlucas-l         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -71,7 +71,13 @@ SRCS = ft_atoi.c \
 		ft_lstdel.c \
 		ft_lstadd.c \
 		ft_lstiter.c \
-		ft_lstmap.c
+		ft_lstmap.c \
+		\
+		ft_lst_reverse.c \
+		ft_list_size.c \
+		ft_list_foreach.c \
+		ft_lst_n.c \
+		ft_sorted_int.c
 
 OBJ = $(SRCS:.c=.o)
 

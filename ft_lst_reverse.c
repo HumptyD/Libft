@@ -1,29 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_lst_reverse.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jlucas-l <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/20 20:13:49 by jlucas-l          #+#    #+#             */
-/*   Updated: 2018/11/28 20:23:31 by jlucas-l         ###   ########.fr       */
+/*   Created: 2018/11/29 16:20:50 by jlucas-l          #+#    #+#             */
+/*   Updated: 2018/11/29 16:30:18 by jlucas-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+t_list		*ft_lst_reverse(t_list *alst)
 {
-	unsigned char	*temp;
-	size_t			i;
+	t_list	*prev;
+	t_list	*curr;
+	t_list	*next;
 
-	i = 0;
-	temp = (unsigned char *)s;
-	while (i < n)
+	prev = NULL;
+	next = NULL;
+	curr = alst;
+	while (curr)
 	{
-		if (temp[i] == (unsigned char)c)
-			return (temp + i);
-		i++;
+		next = curr->next;
+		curr->next = prev;
+		prev = curr;
+		curr = next;
 	}
-	return (NULL);
+	alst = prev;
+	return (alst);
 }

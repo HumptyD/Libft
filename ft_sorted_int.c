@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_sorted_int.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jlucas-l <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/20 20:13:49 by jlucas-l          #+#    #+#             */
-/*   Updated: 2018/11/28 20:23:31 by jlucas-l         ###   ########.fr       */
+/*   Created: 2018/11/29 18:07:39 by jlucas-l          #+#    #+#             */
+/*   Updated: 2018/11/29 18:22:04 by jlucas-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+int		ft_sorted_int(int *arr, int len, int (*f)(int, int))
 {
-	unsigned char	*temp;
-	size_t			i;
+	int	i;
 
 	i = 0;
-	temp = (unsigned char *)s;
-	while (i < n)
+	while (i < len - 1)
 	{
-		if (temp[i] == (unsigned char)c)
-			return (temp + i);
+		if (f(arr[i], arr[i + 1]) > 0)
+			return (0);
 		i++;
 	}
-	return (NULL);
+	return (1);
 }

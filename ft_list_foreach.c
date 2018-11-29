@@ -1,29 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_list_foreach.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jlucas-l <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/20 20:13:49 by jlucas-l          #+#    #+#             */
-/*   Updated: 2018/11/28 20:23:31 by jlucas-l         ###   ########.fr       */
+/*   Created: 2018/11/29 17:21:39 by jlucas-l          #+#    #+#             */
+/*   Updated: 2018/11/29 17:27:58 by jlucas-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+void	ft_list_foreach(t_list *alst, void (*f)(void *, size_t))
 {
-	unsigned char	*temp;
-	size_t			i;
-
-	i = 0;
-	temp = (unsigned char *)s;
-	while (i < n)
+	while (alst && f)
 	{
-		if (temp[i] == (unsigned char)c)
-			return (temp + i);
-		i++;
+		f(alst->content, alst->content_size);
+		alst = alst->next;
 	}
-	return (NULL);
 }

@@ -6,7 +6,7 @@
 #    By: jlucas-l <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/22 16:42:08 by jlucas-l          #+#    #+#              #
-#    Updated: 2018/11/29 18:20:41 by jlucas-l         ###   ########.fr        #
+#    Updated: 2018/12/03 18:52:26 by jlucas-l         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -77,7 +77,8 @@ SRCS = ft_atoi.c \
 		ft_list_size.c \
 		ft_list_foreach.c \
 		ft_lst_n.c \
-		ft_sorted_int.c
+		ft_sorted_int.c \
+		get_next_line.c
 
 OBJ = $(SRCS:.c=.o)
 

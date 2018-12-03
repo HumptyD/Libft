@@ -6,16 +6,21 @@
 /*   By: jlucas-l <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 15:30:24 by jlucas-l          #+#    #+#             */
-/*   Updated: 2018/11/29 21:14:21 by jlucas-l         ###   ########.fr       */
+/*   Updated: 2018/12/03 18:51:41 by jlucas-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
+# define BUFF_SIZE 10
+
 # include <stdlib.h>
 # include <unistd.h>
 # include <string.h>
+# include <fcntl.h>
+# include <sys/types.h>
+# include <sys/stat.h>
 
 void				*ft_memset(void *b, int c, size_t len);
 void				ft_bzero(void *s, size_t n);
@@ -79,6 +84,13 @@ typedef struct		s_list
 	struct s_list	*next;
 }					t_list;
 
+typedef struct		s_file
+{
+	char			*data;
+	int				fd;
+	struct s_file	*next;
+}					t_file;
+
 t_list				*ft_lstnew(void const *content, size_t content_size);
 void				ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
 void				ft_lstdel(t_list **alst, void (*del)(void *, size_t));
@@ -91,5 +103,6 @@ int					ft_list_size(t_list *alst);
 void				ft_list_foreach(t_list *alst, void (*f)(void *, size_t));
 t_list				*ft_lst_n(t_list *lst, size_t n);
 int					ft_sorted_int(int *arr, int len, int (*f)(int, int));
+int					get_next_line(const int fd, char **line);
 
 #endif

@@ -6,7 +6,7 @@
 #    By: jlucas-l <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/22 16:42:08 by jlucas-l          #+#    #+#              #
-#    Updated: 2018/12/03 18:52:26 by jlucas-l         ###   ########.fr        #
+#    Updated: 2018/12/20 18:08:27 by jlucas-l         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -78,14 +78,17 @@ SRCS = ft_atoi.c \
 		ft_list_foreach.c \
 		ft_lst_n.c \
 		ft_sorted_int.c \
-		get_next_line.c
+		get_next_line.c \
+		ft_strnlen.c \
+		ft_putnstr.c \
+		ft_lltoa_base.c
 
 OBJ = $(SRCS:.c=.o)
 
 all: $(NAME)
 
 $(NAME):
-		gcc -c $(GCCFLAGS) $(SRCS) -I.
+		gcc -c $(GCCFLAGS) $(SRCS) -I ./includes/
 		ar rc $(NAME) $(OBJ)
 		ranlib $(NAME)
 

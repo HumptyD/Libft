@@ -6,7 +6,7 @@
 /*   By: jlucas-l <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/29 18:58:48 by jlucas-l          #+#    #+#             */
-/*   Updated: 2018/12/03 18:56:09 by jlucas-l         ###   ########.fr       */
+/*   Updated: 2018/12/07 14:28:46 by jlucas-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,9 @@ int				get_next_line(const int fd, char **line)
 		return (-1);
 	if (!(curr = find_fd(&slst, fd)))
 		return (-1);
-	while ((ret = read(fd, buf, BUFF_SIZE)) > 0)
+	ret = 0;
+	while (!(ft_strchr(curr->data, '\n')) &&
+			(ret = read(fd, buf, BUFF_SIZE)) > 0)
 	{
 		buf[ret] = '\0';
 		if (!(curr->data = ft_strjoinfree(&curr->data, buf)))

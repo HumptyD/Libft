@@ -6,13 +6,14 @@
 /*   By: jlucas-l <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 15:30:24 by jlucas-l          #+#    #+#             */
-/*   Updated: 2018/12/03 18:51:41 by jlucas-l         ###   ########.fr       */
+/*   Updated: 2018/12/20 18:08:04 by jlucas-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
+# define ABS(Value) ((Value) < 0 ? -(Value) : (Value))
 # define BUFF_SIZE 10
 
 # include <stdlib.h>
@@ -104,5 +105,8 @@ void				ft_list_foreach(t_list *alst, void (*f)(void *, size_t));
 t_list				*ft_lst_n(t_list *lst, size_t n);
 int					ft_sorted_int(int *arr, int len, int (*f)(int, int));
 int					get_next_line(const int fd, char **line);
+int					ft_strnlen(const char *s, int n);
+int					ft_putnstr(const char *s, int n);
+char				*ft_lltoa_base(long long n, int base, char *type);
 
 #endif

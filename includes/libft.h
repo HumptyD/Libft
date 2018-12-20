@@ -6,7 +6,7 @@
 /*   By: jlucas-l <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 15:30:24 by jlucas-l          #+#    #+#             */
-/*   Updated: 2018/12/20 18:08:04 by jlucas-l         ###   ########.fr       */
+/*   Updated: 2018/12/20 19:05:29 by jlucas-l         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,5 +108,7 @@ int					get_next_line(const int fd, char **line);
 int					ft_strnlen(const char *s, int n);
 int					ft_putnstr(const char *s, int n);
 char				*ft_lltoa_base(long long n, int base, char *type);
+char				*ft_ulltoa_base(unsigned long long n,
+						int base, char *type);
 
 #endif

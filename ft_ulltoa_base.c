@@ -18,22 +18,18 @@ char	*ft_ulltoa_base(unsigned long long n, int base, char *type)
 	int					len;
 	unsigned long long	nb;
 
-	res = NULL;
-	if (base >= 2 && base <= 16)
+	nb = n;
+	len = nb == 0 ? 1 : 0;
+	while (nb)
 	{
-		nb = n;
-		len = nb == 0 ? 1 : 0;
-		while (nb)
-		{
-			nb /= base;
-			len++;
-		}
-		res = ft_strnew(len);
-		while (len--)
-		{
-			res[len] = (type ? type : "0123456789abcdef")[ABS(n % base)];
-			n /= base;
-		}
+		nb /= base;
+		len++;
+	}
+	res = ft_strnew(len);
+	while (len--)
+	{
+		res[len] = (type ? type : "0123456789abcdef")[ABS(n % base)];
+		n /= base;
 	}
 	return (res);
 }
